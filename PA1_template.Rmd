@@ -11,7 +11,7 @@ data <- read.csv("activity.csv")
 ##What is mean total number of steps taken per day?
 
 Histogram
-```{r}
+```{r Histogram 1}
 split.By.Date <- split(data$steps,data$date)
 steps.Per.Day <- sapply(split.By.Date,sum,na.rm=TRUE)
 hist(steps.Per.Day,ylab="Days",xlab="Steps Taken")
@@ -28,7 +28,7 @@ median(steps.Per.Day,na.rm=TRUE)
 ```
 
 ##What is the average daily activity pattern?
-```{r}
+```{r Daily Activity Plot}
 split.By.Interval <- split(data$steps,data$interval)
 mean.Per.Interval <- sapply(split.By.Interval,mean,na.rm=TRUE)
 plot(names(mean.Per.Interval),mean.Per.Interval,type="l",main="Mean Number of Steps Per 5-minute Interval",xlab="5-Minute Interval",ylab="Number of Steps(mean)")
@@ -64,7 +64,7 @@ steps.Per.Day2 <- sapply(split.By.Date2,sum)
 ```
 
 Histogram
-```{r}
+```{r Missing Values Histogram}
 hist(steps.Per.Day2,ylab="Days",xlab="Steps Taken")
 ```
 
@@ -103,7 +103,7 @@ mean.Per.Interval.Weekday <- sapply(split.By.Interval.Weekday,mean)
 mean.Per.Interval.Weekend <- sapply(split.By.Interval.Weekend,mean)
 ```
 
-```{r}
+```{r Activity By Weekdays}
 #restructuring data frame so that I can plot with ggplot
 data3 <- data.frame(Interval=names(mean.Per.Interval),Weekend.Means=mean.Per.Interval.Weekend,weekday.Means=mean.Per.Interval.Weekday)
 data3.long <- melt(data3,id.vars="Interval")

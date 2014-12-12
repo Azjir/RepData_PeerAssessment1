@@ -19,7 +19,7 @@ steps.Per.Day <- sapply(split.By.Date,sum,na.rm=TRUE)
 hist(steps.Per.Day,ylab="Days",xlab="Steps Taken")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![plot of chunk Histogram 1](figure/Histogram 1-1.png) 
 
 Mean:
 
@@ -49,7 +49,7 @@ mean.Per.Interval <- sapply(split.By.Interval,mean,na.rm=TRUE)
 plot(names(mean.Per.Interval),mean.Per.Interval,type="l",main="Mean Number of Steps Per 5-minute Interval",xlab="5-Minute Interval",ylab="Number of Steps(mean)")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![plot of chunk Daily Activity Plot](figure/Daily Activity Plot-1.png) 
 
 ```r
 maximum <- max(mean.Per.Interval)
@@ -105,7 +105,7 @@ Histogram
 hist(steps.Per.Day2,ylab="Days",xlab="Steps Taken")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
+![plot of chunk Missing Values Histogram](figure/Missing Values Histogram-1.png) 
 
 Mean:
 
@@ -165,6 +165,6 @@ data3.long$Interval <- Intervals
 ggplot(data3.long,aes(x=Interval,y=value,group=variable,color=variable)) + geom_line() + facet_grid(variable~.) + scale_x_discrete(breaks=seq(from=0,to=2355,by=200),labels=seq(from=0,to=2355,by=200)) + labs(title="Mean Number of Steps taken on Weekends vs Weekdays",y="Steps Taken")
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png) 
+![plot of chunk Activity By Weekdays](figure/Activity By Weekdays-1.png) 
 
 There are differences between steps taken on the weekends and weekdays. On average, people take more steps earlier on the weekdays until the spike right after 8:00AM. This is presumably because people are on their commute to work. After the morning commute spike the amount of steps taken on weekdays is, on average, much lower than on weekends.The amount of steps taken on weekends rises after 8:00AM and continues to fluctuate until the end of the day.
